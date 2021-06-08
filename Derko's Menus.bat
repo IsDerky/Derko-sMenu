@@ -1,4 +1,4 @@
-@echo off
+ @echo off
 color F
 Title Introduce la clave
 :question
@@ -46,13 +46,14 @@ echo  =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 echo.
 echo.
 echo                         1 - Apagar
-echo                         2 - Cuenta atras de 5 minutos para apagar
-echo                         3 - Cancelar apagado
-echo                         4 - Calculadora
-echo                         5 - Matrix
-echo                         6 - Navigators
-echo                         7 - Games
-echo                         8 - Utilities
+echo                         2 - Reiniciar
+echo                         3 - Cuenta atras de 5 minutos para apagar
+echo                         4 - Cancelar apagado
+echo                         5 - Calculadora
+echo                         6 - Matrix
+echo                         7 - Navigators
+echo                         8 - Games
+echo                         9 - Utilities
 
 
 
@@ -61,23 +62,27 @@ set Choice=
 set /p Choice=""
 
 if '%Choice%'=='1' goto insta
-if '%Choice%'=='2' goto fivemin
-if '%Choice%'=='3' goto abort
-if '%Choice%'=='4' goto batcalc
-if '%Choice%'=='5' goto matrix
-if '%Choice%'=='6' goto navigators
-if '%Choice%'=='7' goto games
-if '%Choice%'=='8' goto util
+if '%Choice%'=='2' goto rein
+if '%Choice%'=='3' goto fivemin
+if '%Choice%'=='4' goto abort
+if '%Choice%'=='5' goto batcalc
+if '%Choice%'=='6' goto matrix
+if '%Choice%'=='7' goto navigators
+if '%Choice%'=='8' goto games
+if '%Choice%'=='9' goto util
 
 cls
-echo '%Choice%' No valido
+echo '%Choice%' No valido, intenta de nuevo
 ping localhost -n 2 >Nul
-echo Intenta de nuevo
-ping localhost -n 2 >nul
 cls
 goto Start
 
-
+:rein
+cls
+echo De verdad quieres reiniciar?
+pause
+shutdown -r -t 2
+goto exit
 
 :insta
 cls
@@ -85,6 +90,42 @@ echo De verdad quieres apagar?
 pause
 shutdown -s -t 0
 goto exit
+
+:abort
+shutdown -a 
+goto Start
+
+:fivemin
+shutdown -s -f -t 300 -c "Tienes 5 minutos antes de apagar"
+goto Start
+
+:batcalc
+cls
+:begin
+echo --------------------------------------------------------------
+echo                          Calculadora
+echo --------------------------------------------------------------
+echo.
+set /p sum=
+set /a ans=%sum%
+echo.
+echo = %ans%
+echo --------------------------------------------------------------
+pause
+cls
+echo Solucion anterior %ans%
+goto begin 
+ 
+:matrix
+color 2
+echo %random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%
+goto matrix
+
+:correct
+cls
+echo Clave correcta %username%
+ping localhost -n 3 >nul
+goto Start  
 
 :navigators
 cls
@@ -117,6 +158,28 @@ echo '%Var%' No valido, intenta de nuevo
 ping localhost -n 2 >Nul
 cls
 goto Start
+
+:chrome
+echo Iniciando Chrome
+ping localhost -n 3 >nul
+cd "C:\Program Files\Google\Chrome\Application"
+start chrome.exe
+goto Start
+
+:opera
+echo Iniciando Opera
+ping localhost -n 3 >nul
+cd "%userprofile%\AppData\Local\Programs\Opera GX"
+start launcher.exe
+goto Start
+
+:edge
+echo Iniciando Edge
+ping localhost -n 3 >nul
+cd "C:\Program Files (x86)\Microsoft\Edge\Application"
+start msedge.exe
+goto Start
+
 
 :games
 cls
@@ -161,23 +224,12 @@ cd "C:\Riot Games\Riot Client"
 start RiotClientServices.exe --launch-product=valorant --launch-patchline=live
 goto Start
 
-:fivem
-cd "C:\Users\alexm\AppData\Local\FiveM"
-start Fivem.exe
-goto Start
-
 :minecraft
 cd "C:\Program Files (x86)\Minecraft Launcher"
 Start MinecraftLauncher.exe
 goto Start
 
-:abort
-shutdown -a 
-goto Start
 
-:fivemin
-shutdown -s -f -t 300 -c "Tienes 5 minutos antes de apagar"
-goto Start
 
 :util
 cls
@@ -240,57 +292,7 @@ goto Start
 cd "C:\WINDOWS\system32"
 start Taskmgr.exe
 goto Start
-
-
-:batcalc
-cls
-:begin
-echo --------------------------------------------------------------
-echo                          Calculadora
-echo --------------------------------------------------------------
-echo.
-set /p sum=
-set /a ans=%sum%
-echo.
-echo = %ans%
-echo --------------------------------------------------------------
-pause
-cls
-echo Solucion anterior %ans%
-goto begin 
- 
-:matrix
-color 2
-echo %random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%
-goto matrix
-
-:correct
-cls
-echo Clave correcta %username%
-ping localhost -n 3 >nul
-goto Start                                                                                                                                                                                               
-
-:chrome
-echo Iniciando Chrome
-ping localhost -n 3 >nul
-cd "C:\Program Files\Google\Chrome\Application"
-start chrome.exe
-goto Start
-
-:opera
-echo Iniciando Opera
-ping localhost -n 3 >nul
-cd "%userprofile%\AppData\Local\Programs\Opera GX"
-start launcher.exe
-goto Start
-
-:edge
-echo Iniciando Edge
-ping localhost -n 3 >nul
-cd "C:\Program Files (x86)\Microsoft\Edge\Application"
-start msedge.exe
-goto Start
-
+                                                                                                                                                                                      
 :back
 cls
 goto Start
