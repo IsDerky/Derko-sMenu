@@ -1,4 +1,4 @@
- @echo off
+@echo off
 color F
 Title Introduce la clave
 :question
@@ -99,24 +99,22 @@ echo  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 echo  =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 echo.
 echo.
-echo                         9 - Opera
-echo                        10 - Chrome
-echo                        11 - Edge
+echo                         1 - Opera
+echo                         2 - Chrome
+echo                         3 - Edge
 echo                         0 - Back
 
-set Choice=
-set /p Choice=""
+set Var=
+set /p Var=""
 
-if '%Choice%'=='9' goto opera
-if '%Choice%'=='10' goto chrome
-if '%Choice%'=='11' goto edge
+if '%Var%'=='1' goto opera
+if '%Var%'=='2' goto chrome
+if '%Var%'=='3' goto edge
 if '%Choice%'=='0' goto back
 
 cls
-echo '%Choice%' No valido
+echo '%Var%' No valido, intenta de nuevo
 ping localhost -n 2 >Nul
-echo Intenta de nuevo
-ping localhost -n 2 >nul
 cls
 goto Start
 
@@ -133,25 +131,23 @@ echo  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 echo  =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 echo.
 echo.
-echo                         12 - Steam
-echo                         13 - Valorant
-echo                         14 - Fivem
-echo                         15 - Minecraft
+echo                          1 - Steam
+echo                          2 - Valorant
+echo                          3 - Fivem
+echo                          4 - Minecraft
 echo                          0 - Back
 
-set Choice=
-set /p Choice=""
+set Vari=
+set /p Vari=""
 
-if '%Choice%'=='12' goto steam
-if '%Choice%'=='13' goto valorant
-if '%Choice%'=='14' goto fivem
-if '%Choice%'=='15' goto minecraft
+if '%Vari%'=='1' goto steam
+if '%Vari%'=='2' goto valorant
+if '%Vari%'=='3' goto fivem
+if '%Vari%'=='4' goto minecraft
 if '%Choice%'=='0' goto back
 cls
-echo '%Choice%' No valido
+echo '%Vari%' No valido, intenta de nuevo
 ping localhost -n 2 >Nul
-echo Intenta de nuevo
-ping localhost -n 2 >nul
 cls
 goto Start
 
@@ -196,24 +192,24 @@ echo  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 echo  =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 echo.
 echo.
-echo                         16 - Paint
-echo                         17 - Audacity
-echo                         18 - Gimp
-echo                         19 - Adm. Tareas
-echo                         20 - Recortes
+echo                          1 - Paint
+echo                          2 - Audacity
+echo                          3 - Gimp
+echo                          4 - Adm. Tareas
+echo                          5 - Recortes
 echo                          0 - Back
 
-set Choice=
-set /p Choice=""
+set Varo=
+set /p Varo=""
 
-if '%Choice%'=='16' goto paint
-if '%Choice%'=='17' goto audacity
-if '%Choice%'=='18' goto gimp
-if '%Choice%'=='20' goto recortes
-if '%Choice%'=='19' goto admtar
+if '%Varo%'=='1' goto paint
+if '%Varo%'=='2' goto audacity
+if '%Varo%'=='3' goto gimp
+if '%Varo%'=='4' goto recortes
+if '%Varo%'=='5' goto admtar
 if '%Choice%'=='0' goto back
 cls
-echo '%Choice%' No valido
+echo '%Varo%' No valido
 ping localhost -n 2 >Nul
 echo Intenta de nuevo
 ping localhost -n 2 >nul
